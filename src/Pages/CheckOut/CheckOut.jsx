@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import img from '../../assets/images/checkout/checkout.png'
+import image from '../../assets/images/checkout/checkout.png'
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
@@ -28,7 +28,7 @@ const CheckOut = () => {
     }
     console.log(order)
 
-    fetch('http://localhost:5000/bookings',{
+    fetch('https://car-doctor-server-tau-two.vercel.app/bookings',{
       method:"POST",
       headers:{
         'content-type':'application/Json'
@@ -53,7 +53,7 @@ const CheckOut = () => {
     <div>
       <div className="carousel w-full">
         <div id="item1" className="carousel-item w-full">
-          <img src={img} className="w-full" />
+          <img src={image} className="w-full" />
         </div>
       </div>
 
