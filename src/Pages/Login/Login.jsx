@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import img from '../../assets/images/login/login.svg'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 const Login = () => {
 const {singIn} = useContext(AuthContext)
 const navigate = useNavigate()
@@ -17,8 +18,10 @@ const handelLogin = (event) =>{
   singIn(email,password)
   .then(result=>{
     const user = result.user
+
     console.log(user)
     navigate(from,{replace:true})
+
   })
   .catch(error=>console.log(error.message))
 
@@ -44,7 +47,7 @@ const handelLogin = (event) =>{
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
-              <input type="text" name='password' placeholder="password" className="input input-bordered" />
+              <input type="password" name='password' placeholder="password" className="input input-bordered" />
               <label className="label">
                 <Link to='' className="label-text-alt link link-hover">Forgot password?</Link>
               </label>
@@ -54,6 +57,7 @@ const handelLogin = (event) =>{
             </div>
              </form>
              <p className='my-4 text-center'>New to car doctor? <Link className='text-orange-600 font-bold ml-1' to='/singup'>Sing Up!</Link></p>
+             <SocialLogin ></SocialLogin>
           </div>
         </div>
       </div>
